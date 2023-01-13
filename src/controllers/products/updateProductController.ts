@@ -1,13 +1,13 @@
 import {Request, Response} from 'express';
-import {createProductRepository} from '../../repositories/products/createProductRepository';
+import {updateProductRepository} from '../../repositories/products/updateProductRepository';
 
-export async function createProductController(req: Request, res: Response) {
+export async function updateProductController(req: Request, res: Response) {
   try {
+    const { id } = req.params;
     const { name, category, quantity, status } = req.body;
 
     // Validação
-    if (!name) return res.status(400).json({ error: 'Name is required.'});
-    if (!category) return res.status(400).json({ error: 'Category is required.'});
+    if (!id) return res.status(400).json({ error: 'Id is required.'});
     if (quantity || quantity === '') {
       if (!Number.parseInt(quantity)) return res.status(400).json({ error: 'Quantity must be a number.'});
       if (quantity < 0) return res.status(400).json({ error: 'Quantity must be a integer.'});
@@ -18,14 +18,15 @@ export async function createProductController(req: Request, res: Response) {
       }
     }
 
-    const product = await createProductRepository({
+    const product = await updateProductRepository({
+      id,
       name,
       category,
       quantity: quantity && Number.parseInt(quantity),
       status: status && status.toUpperCase()
     });
 
-    return res.status(201).json(product);
+    return res.status(200).json(product);
   } catch (e) {
     res.sendStatus(500);
   }

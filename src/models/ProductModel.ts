@@ -18,7 +18,8 @@ const schema = new Schema({
   quantity: {
     type: Number,
     required: true,
-    default: 1
+    default: 0,
+    min: 0
   },
   created_at: {
     type: Date,
