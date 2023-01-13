@@ -1,12 +1,9 @@
-import {ProductType} from '../../types/ProductType';
-import {ProductModel} from '../../models/ProductModel';
+import {CityModel} from '../../models/CityModel';
+import {CityType} from '../../types/CityType';
 
-interface ICreateProductRepository {
-  name: string,
-  category: string,
-  quantity?: number,
-  status?: ProductType['status'],
+interface ICreateCitiesRepository {
+  cities: Array<CityType>
 }
-export async function createProductRepository({ name, category, quantity, status }: ICreateProductRepository) {
-  return ProductModel.create({ name, category, quantity, status });
+export async function createCitiesRepository({ cities }: ICreateCitiesRepository) {
+  return CityModel.create(cities);
 }
