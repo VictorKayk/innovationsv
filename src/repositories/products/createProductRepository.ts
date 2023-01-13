@@ -8,6 +8,5 @@ interface ICreateProductRepository {
   status?: ProductType['status'],
 }
 export async function createProductRepository({ name, category, quantity, status }: ICreateProductRepository) {
-  const product = await ProductModel.create({ name, category, quantity, status });
-  return product;
+  return ProductModel.create({ name, category, quantity, status });
 }
