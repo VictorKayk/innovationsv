@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import {createProductRepository} from '../../Repositories/products/createProductRepository';
+import {createProductRepository} from '../../repositories/products/createProductRepository';
 
 export async function createProductController(req: Request, res: Response) {
   try {
