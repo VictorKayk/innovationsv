@@ -1,29 +1,31 @@
 import {Request, Response} from 'express';
 import {createProductRepository} from '../../repositories/products/createProductRepository';
+import Joi from 'joi';
+import {ProductType} from '../../types/ProductType';
+
+const schema = Joi.object<{
+  name: string,
+  category: string,
+  quantity: number,
+  status: ProductType['status']
+}>({
+  name: Joi.string().min(2).required(),
+  category: Joi.string().min(2).required(),
+  quantity: Joi.number().integer().min(0),
+  status: Joi.string().valid('ACTIVE', 'INACTIVE').uppercase()
+});
 
 export async function createProductController(req: Request, res: Response) {
   try {
-    const { name, category, quantity, status } = req.body;
-
     // Validação
-    if (!name) return res.status(400).json({ error: 'Name is required.'});
-    if (!category) return res.status(400).json({ error: 'Category is required.'});
-    if (quantity || quantity === '') {
-      if (!Number.parseInt(quantity)) return res.status(400).json({ error: 'Quantity must be a number.'});
-      if (quantity < 0) return res.status(400).json({ error: 'Quantity must be a integer.'});
-    }
-    if (status || status === '') {
-      if (!['ACTIVE', 'INACTIVE'].includes(status.toUpperCase())) {
-        return res.status(400).json({ error: 'Status should be one of this: ACTIVE or INACTIVE'});
-      }
+    const { error, value } = schema.validate(req.body, { abortEarly: false });
+
+    if (error) {
+      const errorsMessage = error.details.map(({ message }) => message);
+      return res.status(400).json(errorsMessage);
     }
 
-    const product = await createProductRepository({
-      name,
-      category,
-      quantity: quantity && Number.parseInt(quantity),
-      status: status && status.toUpperCase()
-    });
+    const product = await createProductRepository(value);
 
     return res.status(201).json(product);
   } catch (e) {
