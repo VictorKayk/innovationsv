@@ -13,7 +13,6 @@ export async function listProductsByIdController(req: Request, res: Response) {
 
     return res.status(404).json({ error: 'User not found.'});
   } catch (e) {
-    console.log(e);
     res.sendStatus(500);
   }
 }

@@ -6,7 +6,8 @@ interface IListProductsByIdRepository {
 
 export async function listProductsByIdRepository({ id }: IListProductsByIdRepository) {
   try {
-    return ProductModel.findById(id);
+    const product = await ProductModel.findById(id);
+    return product;
   } catch {
     return null;
   }
