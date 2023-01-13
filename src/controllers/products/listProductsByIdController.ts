@@ -21,7 +21,7 @@ export async function listProductsByIdController(req: Request, res: Response) {
     const product = await listProductsByIdRepository(value);
     if (product) return res.status(200).json(product);
 
-    return res.status(404).json({ message: 'User not found.'});
+    return res.status(404).json({ message: 'Product not found.'});
   } catch (e) {
     res.sendStatus(500);
   }

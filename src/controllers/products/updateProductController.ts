@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import {updateProductRepository} from '../../repositories/products/updateProductRepository';
 import Joi from 'joi';
 import {ProductType} from '../../types/ProductType';
+import {listProductsByIdRepository} from '../../repositories/products/listProductsByIdRepository';
 
 const schema = Joi.object<{
   id: string,
@@ -27,7 +28,10 @@ export async function updateProductController(req: Request, res: Response) {
       return res.status(400).json(errorsMessage);
     }
 
-    const product = await updateProductRepository(value);
+    let product = await listProductsByIdRepository(value);
+    if (!product) res.status(404).json({ message: 'Product not found.'});
+
+    product = await updateProductRepository(value);
 
     return res.status(200).json(product);
   } catch (e) {
