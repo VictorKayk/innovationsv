@@ -34,6 +34,8 @@ A arquitetura é limpa e escalável, permitindo fácil manutenção e customiza�
    -  Inicializa um container chamado "mongo" rodando Mongodb na porta 27017 (porta padrão do mongodb)
    $ docker run --name mongo -p 27017:27017 -d mongo
 
+   - Troque o nome do arquive ".env-teste" para ".env" e insira os valores de DATABASE_URL e PORT (ou use os valores padrões).
+
    - Inicie a aplicação em modo dev
    $ npm run dev
    ```
