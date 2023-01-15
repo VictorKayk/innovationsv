@@ -1,0 +1,41 @@
+enum Status {
+  ACTIVE,
+  INACTIVE
+}
+
+type Product {
+  _id: String!,
+  name: String!,
+  category: String!,
+  quantity: Int,
+  status: Status,
+  created_at: String!,
+  updated_at: String,
+  deleted_at: String,
+}
+
+input CreateProductInput {
+  name: String!,
+  category: String!,
+  quantity: Int,
+  status: Status,
+}
+
+input UpdateProductInput {
+  id: String!
+  name: String,
+  category: String,
+  quantity: Int,
+  status: Status,
+}
+
+type Query {
+  products: [Product]!
+  product(id: String!): Product
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: String!): Product
+}
