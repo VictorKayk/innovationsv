@@ -28,6 +28,19 @@ export class UpdateProductInput {
     status?: Nullable<Status>;
 }
 
+export class City {
+    cityId: string;
+    name: string;
+}
+
+export abstract class IQuery {
+    abstract cities(): Nullable<City>[] | Promise<Nullable<City>[]>;
+
+    abstract products(): Nullable<Product>[] | Promise<Nullable<Product>[]>;
+
+    abstract product(id: string): Nullable<Product> | Promise<Nullable<Product>>;
+}
+
 export class Product {
     _id: string;
     name: string;
@@ -37,12 +50,6 @@ export class Product {
     created_at: string;
     updated_at?: Nullable<string>;
     deleted_at?: Nullable<string>;
-}
-
-export abstract class IQuery {
-    abstract products(): Nullable<Product>[] | Promise<Nullable<Product>[]>;
-
-    abstract product(id: string): Nullable<Product> | Promise<Nullable<Product>>;
 }
 
 export abstract class IMutation {
