@@ -17,26 +17,33 @@ A arquitetura é limpa e escalável, permitindo fácil manutenção e customiza�
 - Mongoose
 - Docker
 - Axios
-- Husky
 
 ## 🤔 Como usar?
 
+  1. Clone esse repositório:
    ```
-   - Clone esse repositório:
    $ git clone https://github.com/VictorKayk/innovationsv.git
+   ```
 
-   - Entre no diretório:
-   $ cd innovationsv
+   2. Entre no diretório:
+   ```
+   $ cd innovationsv/node-express
+   ```
    
-   - Instale as dependências:
-   $ npm install
+   3. Instale as dependências:
+   ```
+   $ npm run install
+   ```
 
-   -  Inicializa um container chamado "mongo" rodando Mongodb na porta 27017 (porta padrão do mongodb)
+   4.  Inicializa um container chamado "mongo" rodando Mongodb na porta 27017 (porta padrão do mongodb)
+   ```
    $ docker run --name mongo -p 27017:27017 -d mongo
+   ```
 
-   - Troque o nome do arquive ".env.example" para ".env" e insira os valores de DATABASE_URL e PORT (ou use os valores padrões).
+   5. Troque o nome do arquive ".env.example" para ".env" e insira os valores de DATABASE_URL e PORT (ou use os valores padrões).
 
-   - Inicie a aplicação em modo dev
+   6. Inicie a aplicação em modo dev
+   ```
    $ npm run dev
    ```
 

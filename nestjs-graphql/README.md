@@ -1,73 +1,56 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<div align='center'>
+  <h1>Innovationsv</h1>
+</div>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 👨‍💻 Projeto
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este projeto é uma WEB API desenvolvida com NestJS e GraphQL para gerenciamento de uma loja. Ele utiliza NestJS, um framework para Node.js que fornece uma estrutura de aplicação escalável e modular, permitindo uma fácil manutenção e customização. Além disso, foi utilizado GraphQL, uma linguagem de consulta para APIs, que permite que os usuários obtenham apenas os dados que eles precisam, melhorando a eficiência e flexibilidade da API.
 
-## Description
+Com essas tecnologias, este projeto oferece recursos para realizar operações CRUD (Criar, Ler, Atualizar e Deletar) em produtos de maneira eficiente e simples, com endpoints para listagem, cadastro, atualização e remoção de produtos. Além disso, a arquitetura é limpa e escalável, garantindo segurança e desempenho.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## ⚙️ Tecnologias
 
-## Installation
+- Typescript
+- Node.js
+- NestJs
+- Graphql
+- MongoDB
+- Mongoose
+- Docker
+- Axios
 
-```bash
-$ yarn install
-```
+## 🤔 Como usar?
 
-## Running the app
+   
+   1. Clone esse repositório:
+   ```
+   $ git clone https://github.com/VictorKayk/innovationsv.git
+   ```
 
-```bash
-# development
-$ yarn run start
+   2. Entre no diretório:
+   ```
+   $ cd innovationsv/nestjs-graphql
+   ```
+   
+   3. Instale as dependências:
+   ```
+   $ yarn install
+   ```
 
-# watch mode
-$ yarn run start:dev
+   4.  Inicializa um container chamado "mongo" rodando Mongodb na porta 27017 (porta padrão do mongodb)
+   ```
+   $ yarn docker:up
+   ```
 
-# production mode
-$ yarn run start:prod
-```
+   5. Troque o nome do arquive ".env.example" para ".env" e insira os valores de DATABASE_URL e PORT (ou use os valores padrões).
 
-## Test
+   6. Inicie a aplicação em modo dev
+   ```
+   $ yarn start:dev
+   ```
 
-```bash
-# unit tests
-$ yarn run test
+## 🎥 Demo
+ 
+https://user-images.githubusercontent.com/76819323/212574382-f8d4d2a0-3014-4af5-beaf-4495dd1611c9.mp4 
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+---
